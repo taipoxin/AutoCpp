@@ -1,25 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 #include <ctime>
 
+//#define ROW 6
+//#define COL 5
+
 using namespace std;
 
-
-int showMatrix(int n, int **m)
+int min(int a, int b, int c)
 {
-    for(int i=0;i<n;++i){
-        for(int j=0;j<n;++j)
-            cout<<m[i][j]<<' ';
-        cout<<endl;
+    if (a < b) {
+        return (a < c) ? a : c;
+    } else {
+        return (b < c) ? b : c;
     }
-    cout<<endl;
-    return 0;
-
 }
-
-
 
 int main()
 {
+
+    /*
+    int matrix[ROW][COL] = {
+            {0, 0, 1, 1, 0},
+            {0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 1},
+            {0, 0, 0, 0, 1},
+            {0, 0, 0, 0, 0},
+            {1, 1, 1, 1, 1}};
+
+    */
+
     setlocale(LC_ALL, "Russian");
 
     wcout << L"Ищет максимульную подматрицу, состоящую из нулей\n\n";
@@ -29,52 +40,50 @@ int main()
 
     wcout << L"Введите размер матрицы\n";
     cin >> m;
+    int ROW = m;
+    int COL = m;
 
     wcout << L"Начальная матрица: \n";
 
     srand (time(0) );
-    int arr[m][m];
+    int matrix[m][m];
 
     // fill matrix
     for (int i=0; i < m; i++)
     {
         for (int j=0; j < m; j++)
         {
-            arr[i][j] = rand() % 2;
-            cout<< arr[i][j]<< " ";
+            matrix[i][j] = rand() % 2;
+            cout<< matrix[i][j]<< " ";
         }
         cout<< endl;
     }
 
-    // alg
-    int col=0, i, j, i1, j1, tmp, tmp1;
-    for(i=0; i<m; i++)
-        for(j=0; j<m; j++)
-        {
-          if(arr[i][j]!=1)
-          {
-              tmp=0;
-              for(j1=j; j1<m && arr[i][j1]!=1; j1++)
-              {
-                  tmp1=0;
-                  for(i1=i; i1<m && arr[i1][j1]!=1; i1++)
-                      tmp1++;
-                  if(!tmp)
-                      tmp=tmp1;
-                  else
-                  {
-                      if(tmp>tmp1)
-                          tmp=tmp1;
-                  }
-                    if(col<tmp*(j1-j+1))
-                        col=tmp*(j1-j+1);
-              }
-          }
+
+
+    int output[ROW][COL] = {0};
+    int i, j;
+    int max = 1;
+
+    for (i = 0; i < ROW; i++) {
+        for (j = 0; j < COL; j++) {
+            if (matrix[i][j] == 0)
+                output[i][j] = 1;
         }
-    // здесь в переменной col максимальное значение площади
+    }
 
-    wcout << L"Площадь максимальной подматрицы из нулей равна ";
-    cout << to_string(col);
+    for (i = 1; i < ROW; i++) {
+        for (j = 1; j < COL; j++) {
+            if (output[i][j]) {
+                output[i][j] = min(output[i-1][j-1], output[i-1][j], output[i][j-1]) + 1;
+                if (output[i][j] > max)
+                    max = output[i][j];
+            }
+        }
+    }
 
+    wcout << L"\nМаксимальный размер стороны квадратной подматрицы, состоящей из нулей, равен ";
+    cout << to_string(max) << endl;
+    system("pause");
     return 0;
 }

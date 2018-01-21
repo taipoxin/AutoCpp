@@ -1,0 +1,4 @@
+ToolSet: 5.0@X:\minGW
+Options: 
+
+Options:-static-libgcc

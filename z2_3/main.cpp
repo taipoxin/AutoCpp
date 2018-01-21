@@ -5,12 +5,14 @@
 using namespace std;
 
 
-int task()
+int task(int p, int k, int t)
 {
-    int p, k, t, year;
+    int year;
+    /*
     p = 100; // первоначальный объем
     k = 15; // годовой прирост
     t = 20; // годовой план заготовки
+     */
     year = 1;
 
     if ((p*k)/100 >= t)
@@ -35,7 +37,17 @@ int task()
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    task();
+    wcout << L"Задача на вырубку леса\n";
+    int p,k,t;
+
+    wcout << L"Введите обьем в кубометрах\n";
+    cin >> p;
+    wcout << L"Введите годовой прирост в процентах\n";
+    cin >> k;
+    wcout << L"Введите план заготовки в кубометрах\n";
+    cin >> t;
+
+    task(p, k, t);
     system("pause");
     return 0;
 }

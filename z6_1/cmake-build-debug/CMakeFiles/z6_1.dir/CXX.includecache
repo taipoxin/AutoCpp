@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+X:/CsharpProjects/CPP/z6_1/main.cpp
+iostream
+-
+locale
+-
+fstream
+-
+iterator
+-
+string
+-
+vector
+-
+

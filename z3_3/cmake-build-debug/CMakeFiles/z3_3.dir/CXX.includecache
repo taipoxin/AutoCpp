@@ -7,6 +7,10 @@
 #IncludeRegexTransform: 
 
 X:/CsharpProjects/CPP/z3_3/main.cpp
+stdio.h
+-
+stdlib.h
+-
 iostream
 -
 ctime

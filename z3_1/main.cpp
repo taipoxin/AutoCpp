@@ -4,15 +4,6 @@
 
 using namespace std;
 
-
-int fillMatrix(int n, int **m)
-{
-    for(int i=0;i<n;++i)
-        for(int j=0;j<n;++j)
-            m[i][j] = stoi(to_string(i+1) + to_string(j+1));
-    return 0;
-}
-
 int changeDiags(int n, int **m)
 {
     for(int i=0;i<n;++i){
@@ -28,10 +19,10 @@ int showMatrix(int n, int **m)
 {
     for(int i=0;i<n;++i){
         for(int j=0;j<n;++j)
-            std::cout<<m[i][j]<<' ';
-        std::cout<<std::endl;
+            cout<<m[i][j]<<' ';
+        cout<<endl;
     }
-    std::cout<<std::endl;
+    cout<<endl;
     return 0;
 
 }
