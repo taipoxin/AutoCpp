@@ -13,4 +13,12 @@ stdlib.h
 -
 locale
 -
+string
+-
+vector
+-
+iterator
+-
+sstream
+-
 

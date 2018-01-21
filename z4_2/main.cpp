@@ -28,9 +28,9 @@ string checkString(string input)
 int main() {
     cout << "Clears twice recorded words in the text.\n";
     cout << "Please write text of enter \".\" for use existed pattern\n";
-    string input;
+    string input = "";
     string pattern = "How old are are you?\n";
-    cin >> input;
+    getline ( cin, input ); //заполняем строку
 
     if (input == ".") {
         cout << "Using pattern: ";

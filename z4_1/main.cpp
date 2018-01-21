@@ -1,7 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
 #include <locale>
-
+#include <string>
+#include <vector>
+#include <iterator>
+#include <sstream>
 
 using namespace std;
 
@@ -29,7 +32,7 @@ int main()
 
     char *str=(char*)malloc(10*sizeof(char));
 
-    cin >>str;
+    cin >> str;
 
     wcout << L"Result number: \n";
     int d = stonum(str);
