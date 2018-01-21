@@ -11,7 +11,7 @@ string inFile(const wchar_t* intro, string def)
     cin >> file;
     if (file == ".") {
         file = def;
-        wcout << L"Использование стандартного файла ";
+        wcout << L"Using standard file ";
         cout << def << endl;
     }
     return file;
@@ -26,7 +26,7 @@ void showFile(const char *fileName)
     while ((cch = fgetc (file)) != EOF) {
         full += cch;
     }
-    wcout << L"Исходный текст файла:\n\n";
+    wcout << L"Source text:\n\n";
     cout << full << endl << endl;
 }
 
@@ -74,16 +74,16 @@ int main() {
     string file1;
 
 
-    wcout << L"Заменить в файле каждую цифру на последовательность\n";
-    wcout << L"знаков + (для четных) и - (для нечетных), длина \n";
-    wcout << L"последовательности соответствует значению цифры\n\n";
+    wcout << L"Replace each digit in the file with a sequence\n";
+    wcout << L"of  \"+\" (for even) and - (for odd), and length of\n";
+    wcout << L"sequence corresponds to the value of the digit\n\n";
 
 
-    file1 = inFile(L"Введите название файла либо . для стандартного\n", file1_d);
+    file1 = inFile(L"Enter the file name either \".\" for standard\n", file1_d);
     const char *file1_c = file1.c_str();
     showFile(file1_c);
     string text = parseFile(file1_c);
-    wcout << L"Преобразованный текст файла:\n\n";
+    wcout << L"Converted text:\n\n";
     cout << text << endl;
     write(text, file1);
 

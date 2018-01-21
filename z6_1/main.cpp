@@ -52,7 +52,7 @@ string inFile(const wchar_t* intro, string def)
     cin >> file;
     if (file == ".") {
         file = def;
-        wcout << L"Использование стандартного файла ";
+        wcout << L"Using standard file ";
         cout << def << endl;
     }
     return file;
@@ -60,11 +60,11 @@ string inFile(const wchar_t* intro, string def)
 
 void nd(string file1, string file2)
 {
-    wcout << L"Файл ";
+    wcout << L"File ";
     cout << file1;
-    wcout << L" скопирован в файл ";
+    wcout << L" is copied to ";
     cout << file2;
-    wcout << L" с добавлением номеров строк.";
+    wcout << L" with the addition of line numbers.";
     cout << endl;
 }
 
@@ -79,11 +79,11 @@ int main()
     setlocale(LC_ALL, "Russian");
 
 
-    wcout << L"Скопировать один файл во второй и добавить номера строк\n";
+    wcout << L"Copy one file to the second and add line numbers\n";
 
 
-    file1 = inFile(L"Введите название первого файла либо . для стандартного\n", file1_d);
-    file2 = inFile(L"Введите название второго файла либо . для стандартного\n", file2_d);
+    file1 = inFile(L"Enter the name of the first file, either press \".\" for standard\n", file1_d);
+    file2 = inFile(L"Enter the name of the first file, either press \".\" for standard\n", file2_d);
 
     copy(file1, file2);
 

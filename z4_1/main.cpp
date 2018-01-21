@@ -23,14 +23,15 @@ int stonum(char *str)
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    wcout << L"Введите строку цифр: \n";
+    wcout << L"Convert string with digits to number";
+    wcout << L"Enter the digit string: \n";
 
 
     char *str=(char*)malloc(10*sizeof(char));
 
     cin >>str;
 
-    wcout << L"Число полученное в результате обработки: \n";
+    wcout << L"Result number: \n";
     int d = stonum(str);
     cout << to_string(d);
     return 0;

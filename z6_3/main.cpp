@@ -38,7 +38,7 @@ string inFile(const wchar_t* intro, string def)
     cin >> file;
     if (file == ".") {
         file = def;
-        wcout << L"Использование стандартного файла ";
+        wcout << L"Using standard file ";
         cout << def << endl;
     }
     return file;
@@ -46,11 +46,11 @@ string inFile(const wchar_t* intro, string def)
 
 void nd(string file1, string file2, string out)
 {
-    wcout << L"Файлы ";
+    wcout << L"Files ";
     cout << file1;
-    wcout << L" и ";
+    wcout << L" and ";
     cout << file2;
-    wcout << L" объединены в большом файле ";
+    wcout << L" merged in file ";
     cout << out << endl;
 }
 
@@ -65,12 +65,12 @@ int main()
     string out;
 
     setlocale(LC_ALL, "Russian");
-    wcout << L"Объединить два файла в один большой\n";
+    wcout << L"Merge two files in one huge file.\n";
 
 
-    file1 = inFile(L"Введите название первого файла либо . для стандартного\n", file1_d);
-    file2 = inFile(L"Введите название второго файла либо . для стандартного\n", file2_d);
-    out = inFile(L"Введите название файла для объединения либо . для стандартного\n", out_d);
+    file1 = inFile(L"Enter the name of the first file, either \".\" for standard\n", file1_d);
+    file2 = inFile(L"Enter the name of the second file, either \".\" for standard\n", file2_d);
+    out = inFile(L"Enter the name output file, either \".\" for standard\n", out_d);
 
 
     read_n_write(file1, out);

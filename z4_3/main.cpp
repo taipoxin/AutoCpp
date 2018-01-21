@@ -43,8 +43,9 @@ int main()
     setlocale(LC_ALL, "Russian");
     string str;
     int oper;
-    wcout <<  L"Введите строку: (например (20-5)/(6/2) ) \n";
+    wcout <<  L"Check the parenthes.\n";
+    wcout <<  L"Enter the string: (for example, (20-5)/(6/2) ) \n";
     getline ( cin, str ); //заполняем строку
-    if(checkString(str)) wcout << L"Скобки расставлены правильно!" << endl; //проверяем на коррекность скобок
-    else wcout << L"Скобки расставлены неправильно!" << endl;
+    if(checkString(str)) wcout << L"Parenthes are correctly placed!" << endl; //проверяем на коррекность скобок
+    else wcout << L"Parenthes are incorrectly placed!" << endl;
 }
